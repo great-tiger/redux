@@ -35,6 +35,26 @@ export var ActionTypes = {
  * @returns {Store} A Redux store that lets you read the state, dispatch actions
  * and subscribe to changes.
  */
+
+/*
+  创建一个Store
+  该Store内部
+    currentReducer 保存当前Reducer
+    currentState 保存当前状态
+    currentListeners 被注册的监听器，被保存到这里
+
+
+  暴露出的接口
+    getState() 返回 currentState
+    subscribe() 实质上就是把监听器push到 currentListeners 中，返回函数用来取消注册
+    replaceReducer() 实质上就是替换 currentReducer
+    最重要就是
+    dispatch(action) 
+    主要做个两件事
+        1、currentState = currentReducer(currentState, action)
+        2、调用currentListeners中的监听器.(状态改变时，调用监听器)
+*/
+
 export default function createStore(reducer, initialState, enhancer) {
   if (typeof initialState === 'function' && typeof enhancer === 'undefined') {
     enhancer = initialState
