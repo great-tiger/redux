@@ -1,3 +1,19 @@
+/*
+
+bindActionCreator 
+actionCreator用来创建action对象
+dispatch用来把action传送到reducer
+
+var action=actionCreator(...args);
+dispath(action);
+
+bindActionCreator作用就很明显了
+简化了上面两步操作
+
+bindActionCreator返回一个新函数
+封装了上面的操作
+
+*/
 function bindActionCreator(actionCreator, dispatch) {
   return (...args) => dispatch(actionCreator(...args))
 }
@@ -22,6 +38,16 @@ function bindActionCreator(actionCreator, dispatch) {
  * every action creator wrapped into the `dispatch` call. If you passed a
  * function as `actionCreators`, the return value will also be a single
  * function.
+ */
+
+ /*
+  注意这个是复数啊
+  actionCreators 可以传入一个函数也可以是一个对象
+
+  如果传入的是一个函数，则返回一个bindActionCreator封装过的函数
+  如果传入的是一个对象，则返回的也是一个对象。对象上的每一个函数，都已经被bindActionCreator封装过
+
+
  */
 export default function bindActionCreators(actionCreators, dispatch) {
   if (typeof actionCreators === 'function') {
