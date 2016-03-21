@@ -90,6 +90,12 @@ function assertReducerSanity(reducers) {
  * @returns {Function} A reducer function that invokes every reducer inside the
  * passed object, and builds a state object with the same shape.
  */
+
+/*
+  combineReducers 接收一个对象，他的每个值都是一个不同的reducer函数。
+  作用：合并多个reducer函数，成一个reducer函数。
+*/
+
 export default function combineReducers(reducers) {
   var reducerKeys = Object.keys(reducers)
   var finalReducers = {}
