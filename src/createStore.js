@@ -53,6 +53,16 @@ export var ActionTypes = {
     主要做个两件事
         1、currentState = currentReducer(currentState, action)
         2、调用currentListeners中的监听器.(状态改变时，调用监听器)
+
+
+  注意下面函数支持createStore(reducer,enhancer) 语法
+  applyMiddleware的返回值就是一个enhancer。
+  enhancer的作用就是增强createStore的功能。
+  enhancer的签名：
+  (createStore) => (reducer, initialState, enhancer) => {
+    return store;
+  }
+
 */
 
 export default function createStore(reducer, initialState, enhancer) {
