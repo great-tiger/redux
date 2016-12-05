@@ -7,6 +7,32 @@
  * @returns {Function} A function obtained by composing the argument functions
  * from right to left. For example, compose(f, g, h) is identical to doing
  * (...args) => f(g(h(...args))).
+ 
+ compose 函数编程里的方法，从右到左来组合多个函数
+ 简单的例子
+ function A(arg){
+  return arg + 3;
+  console.log("A");
+}
+
+function B(arg){
+  return arg + 2;
+  console.log("B");
+}
+
+function C(arg){
+  return arg+1;
+  console.log("C");
+}
+
+var ret=compose(A,B,C)(0);
+console.log("ret is : ",ret)  //6
+
+
+
+
+
+
  */
  
 export default function compose(...funcs) {

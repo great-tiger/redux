@@ -18,6 +18,8 @@ import compose from './compose'
  */
 
  /*
+   中间件主要被用于分离那些不属于你应用的核心业务逻辑的可被组合起来使用的代码
+
    如果你使用过 Express 或者 Koa 等服务端框架, 那么应该对 middleware 的概念不会陌生。 
    在这类框架中，middleware 是指可以被嵌入在框架接收请求到产生响应过程之中的代码。
    例如，Express 或者 Koa 的 middleware 可以完成添加 CORS headers、记录日志、内容压缩等工作。
